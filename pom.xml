@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.gate39media.bunge-centerfield</groupId>
     <artifactId>fieldprint-integrator-client-dtos</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>fieldprint-integrator-client-dtos</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.3</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <scm>
         <connection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</connection>
         <developerConnection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</developerConnection>
         <url>https://github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.0.1</tag>
     </scm>
 
     <distributionManagement>

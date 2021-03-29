@@ -18,6 +18,7 @@ phases:
       - mkdir -p ~/.aws/ && echo -e "[profile default]\nrole_arn = $INSTANCE_PROFILE\ncredential_source = Ec2InstanceMetadata" > ~/.aws/credentials
       - echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
       - source ~/.bash_profile
+      - printenv | grep -i codebuild
     finally:
       - echo Entered the install phase and compile dependencies from project on `date`...
       - mvn --no-transfer-progress compile -s $SETTINGS_PATH
@@ -50,7 +51,7 @@ phases:
           git config --global user.email "cicd@gate39media.com"
           git config --global user.name "CICD Boot Gate 39 Media"
           git checkout $CODEBUILD_WEBHOOK_HEAD_REF
-          git reset --hard origin/$CODEBUILD_WEBHOOK_HEAD_REF
+          git reset --hard $CODEBUILD_WEBHOOK_HEAD_REF
           mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
           echo "Release was generated successfully!"
         else

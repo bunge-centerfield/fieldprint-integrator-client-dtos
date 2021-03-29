@@ -37,7 +37,9 @@ phases:
       - echo Checking if request received is from PR $CODEBUILD_WEBHOOK_BASE_REF
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $CODE_ARTIFACT_OWNER --query authorizationToken --output text`
       - |-
-        if [ ! -z "$CODEBUILD_WEBHOOK_BASE_REF" ]; then CODEBUILD_WEBHOOK_HEAD_REF=$CODEBUILD_WEBHOOK_BASE_REF; fi
+        if [ ! -z "$CODEBUILD_WEBHOOK_BASE_REF" ]; then
+          CODEBUILD_WEBHOOK_HEAD_REF=$CODEBUILD_WEBHOOK_BASE_REF
+        fi
       - |-
         if [ -z "$CODEBUILD_WEBHOOK_HEAD_REF" ] || echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/feature.*)|(.*\/develop)$'; then
           echo "It was triggered by develop/feature branches."

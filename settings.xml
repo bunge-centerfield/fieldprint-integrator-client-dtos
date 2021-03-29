@@ -56,9 +56,37 @@
                 </repository>
                 <repository>
                     <id>maven-central-store</id>
-                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store</url>
                 </repository>
             </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>centerfield-releases</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>centerfield-snapshots</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>maven-central-store</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store</url>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
     </profiles>
 </settings>

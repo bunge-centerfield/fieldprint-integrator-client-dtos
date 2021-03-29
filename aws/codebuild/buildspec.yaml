@@ -53,7 +53,7 @@ phases:
           git config --global user.name "CICD Boot Gate 39 Media"
           git checkout $CI_COMMIT_REF
           git reset --hard origin/$CI_COMMIT_REF
-          mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests" -Dartifactory.url=$ARTIFACTORY_URL -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
+          mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
           echo "Release was generated successfully!"
         elif echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/master)$'; then
           mvn release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH

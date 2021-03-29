@@ -1,0 +1,6 @@
+spring.application.name: fieldprint-integrator-client
+
+logging.level:
+  root: INFO
+  org.springframework: ERROR
+  com.gate39media.bungecenterfield.fieldprintintegratorclientdtos: INFO

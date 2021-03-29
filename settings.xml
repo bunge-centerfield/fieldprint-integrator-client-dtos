@@ -1,0 +1,64 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+
+    <localRepository>${user.home}/.m2/repository</localRepository>
+
+    <servers>
+        <server>
+            <id>centerfield-releases</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+
+        <server>
+            <id>centerfield-snapshots</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+
+        <server>
+            <id>maven-central-store</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+    </servers>
+
+    <activeProfiles>
+        <activeProfile>gate39media-centerfield</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>gate39media-centerfield</id>
+            <repositories>
+                <repository>
+                    <id>centerfield-releases</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>centerfield-snapshots</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>maven-central-store</id>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+</settings>

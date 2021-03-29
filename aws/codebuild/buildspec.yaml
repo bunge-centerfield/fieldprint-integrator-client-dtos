@@ -1,0 +1,62 @@
+version: 0.2
+
+env:
+  variables:
+    SETTINGS_PATH: settings.xml
+    CODE_ARTIFACT_DOMAIN: bunge-centerfield
+    CODE_ARTIFACT_OWNER: 070040480166
+  parameter-store:
+    ARTIFACTORY_URL: gate39media-codebuild-artifactory-url
+    RELEASE_SCM_USER: gate39media-codebuild-release-scm-user
+    RELEASE_SCM_TOKEN: gate39media-codebuild-release-scm-token
+    INSTANCE_PROFILE: gate39media-codebuild-fieldprint-integrator-service-role
+
+phases:
+  install:
+    commands:
+      - echo export PATH=~/.local/bin:$PATH > ~/.bash_profile
+      - mkdir -p ~/.aws/ && echo -e "[profile default]\nrole_arn = $INSTANCE_PROFILE\ncredential_source = Ec2InstanceMetadata" > ~/.aws/credentials
+      - echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
+      - source ~/.bash_profile
+    finally:
+      - echo Entered the install phase and compile dependencies from project on `date`...
+      - mvn --no-transfer-progress compile -s $SETTINGS_PATH
+  pre_build:
+    commands:
+      - echo Pre build started and running unit tests from project on `date`...
+      - mvn --no-transfer-progress test -s $SETTINGS_PATH
+    finally:
+      - echo Finally running integrated tests form project on `date`...
+      - mvn --no-transfer-progress verify -DskipTests -s $SETTINGS_PATH
+  build:
+    commands: 
+      - echo Build started and generating fat-jar from project on `date`...
+      - mvn clean package --no-transfer-progress -DskipTests -s $SETTINGS_PATH
+  post_build:
+    commands:
+      - echo Checking if request received is from PR $CODEBUILD_WEBHOOK_BASE_REF
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $CODE_ARTIFACT_OWNER --query authorizationToken --output text`
+      - |-
+        if [ ! -z "$CODEBUILD_WEBHOOK_BASE_REF" ]; then CODEBUILD_WEBHOOK_HEAD_REF=$CODEBUILD_WEBHOOK_BASE_REF; fi
+      - |-
+        if [ -z "$CODEBUILD_WEBHOOK_HEAD_REF" ] || echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/feature.*)|(.*\/develop)$'; then
+          echo "It was triggered by develop/feature branches."
+          mvn deploy -B -DskipTests -Dartifactory.url=$ARTIFACTORY_URL -s $SETTINGS_PATH
+          echo "Snapshot generated successfully!"
+          exit 0
+      - |-
+        if echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/release.*)|(.*\/qa)$'; then
+          echo "It was triggered by release/qa branches."
+          git config --global user.email "cicd@gate39media.com"
+          git config --global user.name "CICD Boot Gate 39 Media"
+          git checkout $CODEBUILD_WEBHOOK_HEAD_REF
+          git reset --hard origin/$CODEBUILD_WEBHOOK_HEAD_REF
+          mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
+          echo "Release was generated successfully!"
+          exit 0
+      - echo "Branch not supported! Aborting..."
+      - exit 1
+
+cache:
+  paths:
+    - './.m2'

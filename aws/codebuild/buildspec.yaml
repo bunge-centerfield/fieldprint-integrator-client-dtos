@@ -41,6 +41,7 @@ phases:
         if [ ! -z "$CODEBUILD_WEBHOOK_BASE_REF" ]; then
           CODEBUILD_WEBHOOK_HEAD_REF=$CODEBUILD_WEBHOOK_BASE_REF
         fi
+      - export CI_COMMIT_REF=`awk -F/ '{print $3}' <<< $CODEBUILD_WEBHOOK_HEAD_REF`
       - |-
         if [ -z "$CODEBUILD_WEBHOOK_HEAD_REF" ] || echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/feature.*)|(.*\/develop)$'; then
           echo "It was triggered by develop/feature branches."
@@ -50,9 +51,9 @@ phases:
           echo "It was triggered by release/qa branches."
           git config --global user.email "cicd@gate39media.com"
           git config --global user.name "CICD Boot Gate 39 Media"
-          git checkout $CODEBUILD_WEBHOOK_HEAD_REF
-          git reset --hard $CODEBUILD_WEBHOOK_HEAD_REF
-          mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
+          git checkout $CI_COMMIT_REF
+          git reset --hard origin/$CI_COMMIT_REF
+          mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests" -Dartifactory.url=$ARTIFACTORY_URL -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
           echo "Release was generated successfully!"
         else
           echo "Branch not supported! Aborting..."

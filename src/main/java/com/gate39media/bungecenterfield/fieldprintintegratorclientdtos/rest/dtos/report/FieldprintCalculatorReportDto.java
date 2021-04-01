@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalculatorReportDto {
+public class FieldprintCalculatorReportDto {
     private MetadataDto metadata;
     private List<CropYearsDto> cropyears;
 }

@@ -1,9 +1,9 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator;
 
-public class CalculatorDtoFixture {
+public class FieldprintCalculatorDtoFixture {
 
-    public static CalculatorDto newInstance() {
-        return CalculatorDto.builder()
+    public static FieldprintCalculatorDto newInstance() {
+        return FieldprintCalculatorDto.builder()
                 .geometryType("geojson")
                 .rotationType("crlmod_id")
                 .customFertilizerType("json")

@@ -1,15 +1,14 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report;
 
-import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.CalculatorReportDto;
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.cropyears.CropYearsDtoFixture;
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.metadata.MetadataDtoFixture;
 
 import java.util.Collections;
 
-public class CalculatorReportDtoFixture {
+public class FieldprintCalculatorReportDtoFixture {
 
-    public static CalculatorReportDto newInstance() {
-        return CalculatorReportDto.builder()
+    public static FieldprintCalculatorReportDto newInstance() {
+        return FieldprintCalculatorReportDto.builder()
                 .metadata(MetadataDtoFixture.newInstance())
                 .cropyears(Collections.singletonList(CropYearsDtoFixture.newInstance()))
                 .build();

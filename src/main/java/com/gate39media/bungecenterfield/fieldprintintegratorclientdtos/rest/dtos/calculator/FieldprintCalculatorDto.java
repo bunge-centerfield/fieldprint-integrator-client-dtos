@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CalculatorDto {
+public class FieldprintCalculatorDto {
     @JsonProperty("geometry_type")
     private String geometryType;
     @JsonProperty("rotation_type")

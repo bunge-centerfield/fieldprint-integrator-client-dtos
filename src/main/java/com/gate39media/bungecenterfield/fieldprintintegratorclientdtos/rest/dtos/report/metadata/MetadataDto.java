@@ -30,4 +30,6 @@ public class MetadataDto {
     @JsonProperty("qdmp_request_id")
     private String qdmpRequestId;
     private VersionDto version;
+    @JsonProperty("report_url")
+    private String reportUrl;
 }

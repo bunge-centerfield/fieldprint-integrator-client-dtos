@@ -14,9 +14,9 @@
     </parent>
 
     <scm>
-        <connection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</connection>
-        <developerConnection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</developerConnection>
-        <url>https://github.com/renanalves-gate39/fieldprint-integrator-client-dtos.git</url>
+        <connection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/gate39media/fieldprint-integrator-client-dtos.git</connection>
+        <developerConnection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/gate39media/fieldprint-integrator-client-dtos.git</developerConnection>
+        <url>https://github.com/gate39media/fieldprint-integrator-client-dtos.git</url>
         <tag>HEAD</tag>
     </scm>
 

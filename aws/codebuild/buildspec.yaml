@@ -18,6 +18,7 @@ phases:
       - mkdir -p ~/.aws/ && echo -e "[profile default]\nrole_arn = $INSTANCE_PROFILE\ncredential_source = Ec2InstanceMetadata" > ~/.aws/credentials
       - echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
       - source ~/.bash_profile
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $CODE_ARTIFACT_OWNER --query authorizationToken --output text`
       - printenv | grep -i codebuild
     finally:
       - echo Entered the install phase and compile dependencies from project on `date`...
@@ -36,16 +37,15 @@ phases:
   post_build:
     commands:
       - echo Checking if request received is from PR $CODEBUILD_WEBHOOK_BASE_REF
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $CODE_ARTIFACT_OWNER --query authorizationToken --output text`
       - |-
         if [ ! -z "$CODEBUILD_WEBHOOK_BASE_REF" ]; then CODEBUILD_WEBHOOK_HEAD_REF=$CODEBUILD_WEBHOOK_BASE_REF; fi
-        export CI_COMMIT_REF=`awk -F/ '{print $3}' <<< $CODEBUILD_WEBHOOK_HEAD_REF`
         if [ -z "$CODEBUILD_WEBHOOK_HEAD_REF" ] || echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^(.*\/feature.*)|(.*\/develop)$'; then
           echo "It was triggered by develop/feature branches."
           mvn deploy -B -DskipTests -Dartifactory.url=$ARTIFACTORY_URL -s $SETTINGS_PATH
           echo "Snapshot generated successfully!"
         elif echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^.*\/master$'; then
           echo "It was triggered by master branches."
+          export CI_COMMIT_REF=`awk -F/ '{print $3}' <<< $CODEBUILD_WEBHOOK_HEAD_REF`
           git config --global user.email "cicd@gate39media.com"
           git config --global user.name "CICD Boot Gate 39 Media"
           git checkout $CI_COMMIT_REF

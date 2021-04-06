@@ -33,7 +33,7 @@ phases:
   build:
     commands: 
       - echo Build started and generating fat-jar from project on `date`...
-      - mvn clean package --no-transfer-progress -DskipTests -s $SETTINGS_PATH
+      - mvn clean install --no-transfer-progress -DskipTests -s $SETTINGS_PATH
   post_build:
     commands:
       - echo Checking if request received is from PR $CODEBUILD_WEBHOOK_BASE_REF

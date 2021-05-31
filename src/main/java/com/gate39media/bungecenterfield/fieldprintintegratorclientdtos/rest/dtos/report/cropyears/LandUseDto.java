@@ -2,6 +2,8 @@ package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.commons.ValueUnitDto;
+import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.commons.FieldprintMetricType;
+import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.commons.FieldprintResultsDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +16,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LandUseDto {
+public class LandUseDto implements FieldprintResultsDto {
     private ValueUnitDto fieldprintResult;
-    private Integer scaledFieldprintResult;
+    private Double scaledFieldprintResult;
     private ValueUnitDto yieldAdjusted;
     private List<String> abandonment;
     private BenchmarksDto benchmarks;
+
+    @Override
+    public FieldprintMetricType getType() {
+        return FieldprintMetricType.LAND_USE;
+    }
 }

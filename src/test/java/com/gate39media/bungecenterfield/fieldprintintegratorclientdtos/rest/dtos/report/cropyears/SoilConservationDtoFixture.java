@@ -14,7 +14,7 @@ public class SoilConservationDtoFixture {
                 .fieldprintWater(ValueUnitDtoFixure.fromUnitAndValue("ton / acre / year", 0.5463))
                 .fieldprintWind(ValueUnitDtoFixure.fromUnitAndValue("ton / acre / year", 0.16906793))
                 .fieldprintResult(ValueUnitDtoFixure.fromUnitAndValue("ton / acre / year", 0.7153679))
-                .scaledFieldprintResult(1)
+                .scaledFieldprintResult(1.0)
                 .benchmarks(benchmarks)
                 .build();
     }

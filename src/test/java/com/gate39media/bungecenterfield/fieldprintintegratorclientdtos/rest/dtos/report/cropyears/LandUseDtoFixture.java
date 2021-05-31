@@ -14,7 +14,7 @@ public class LandUseDtoFixture {
         final BenchmarksDto benchmarks = BenchmarksDtoFixture.fromStateAndNationalAndScaleBasis(national, state, "State");
         return LandUseDto.builder()
                 .fieldprintResult(ValueUnitDtoFixure.fromUnitAndValue("acre / bushel", 0.01333333))
-                .scaledFieldprintResult(3)
+                .scaledFieldprintResult(3.0)
                 .yieldAdjusted(ValueUnitDtoFixure.fromUnitAndValue("bushel / acre", 75.0))
                 .abandonment(Collections.emptyList())
                 .benchmarks(benchmarks)

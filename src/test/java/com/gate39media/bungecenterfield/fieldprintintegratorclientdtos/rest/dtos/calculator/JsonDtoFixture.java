@@ -9,7 +9,6 @@ public class JsonDtoFixture {
 
     public static JsonDto newInstance() {
         return JsonDto.builder()
-                .geojson(GeoLocationDtoFixture.newInstance())
                 .plantableAcres(ValueUnitDtoFixure.fromUnitAndValue("ac", 70.5))
                 .slope(ValueUnitDtoFixure.fromUnitAndValue("%", 2.0))
                 .slopeLength(ValueUnitDtoFixure.fromUnitAndValue("ft", 300.0))

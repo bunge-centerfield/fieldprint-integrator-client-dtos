@@ -19,8 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JsonDto {
-    @JsonSerialize(using = FieldprintGeolocationSerializer.class)
-    private GeoLocationDto geojson;
+    private GeoJsonDto geojson;
     @JsonProperty("plantable_acres")
     private ValueUnitDto plantableAcres;
     private ValueUnitDto slope;

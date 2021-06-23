@@ -15,4 +15,18 @@ import lombok.NoArgsConstructor;
 public class FieldDataLocationsDto {
     @JsonSerialize(using = FieldprintGeolocationSerializer.class)
     private GeoLocationDto geojson;
+
+    public static FieldDataLocationsDto newInstance() {
+        return new FieldDataLocationsDto();
+    }
+
+    public static FieldDataLocationsDto of(GeoLocationDto geojson) {
+        final FieldDataLocationsDto location = newInstance();
+        location.geojson(geojson);
+        return location;
+    }
+
+    public void geojson(final GeoLocationDto geolocation) {
+        this.geojson = geolocation;
+    }
 }

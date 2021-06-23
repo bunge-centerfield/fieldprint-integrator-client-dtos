@@ -2,11 +2,11 @@ package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dto
 
 public class CoordinatesDtoFixture {
 
-    public static CoordinatesDto newInstance() {
-        return CoordinatesDto.builder().latitude(-115.972587073854).longitude(44.1028343904066).build();
+    public static GeolocationCoordinatesDto newInstance() {
+        return GeolocationCoordinatesDto.builder().latitude(-115.972587073854).longitude(44.1028343904066).build();
     }
 
-    public static CoordinatesDto fromLatAndLong(Double latitude, Double longitude) {
-        return CoordinatesDto.builder().latitude(latitude).longitude(longitude).build();
+    public static GeolocationCoordinatesDto fromLatAndLong(Double latitude, Double longitude) {
+        return GeolocationCoordinatesDto.builder().latitude(latitude).longitude(longitude).build();
     }
 }

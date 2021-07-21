@@ -20,6 +20,12 @@ public class ManureAppDto {
     private Integer manureTypeId;
     @JsonProperty("manure_amount_id")
     private Integer manureAmountId;
+    @JsonProperty("manure_app_timing_id")
+    private Integer manureAppTimingId;
+    @JsonProperty("manure_app_method_id")
+    private Integer manureAppMethodId;
     @JsonProperty("n_applied")
     private ValueUnitDto nApplied;
+    @JsonProperty("p_applied")
+    private ValueUnitDto pApplied;
 }

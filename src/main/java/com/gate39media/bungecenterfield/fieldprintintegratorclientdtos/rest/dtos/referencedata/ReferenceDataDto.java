@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,4 +19,5 @@ public class ReferenceDataDto {
     private String name;
     @JsonProperty("crop_id")
     private String cropId;
+    private List<String> applicability;
 }

@@ -15,8 +15,10 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApplicationTripDto {
-    @JsonProperty("app_time_id")
-    private Integer appTimeId;
+    @JsonProperty("fertilizer_app_timing_id")
+    private Integer fertAppTiming;
+    @JsonProperty("fertilizer_app_method_id")
+    private Integer fertAppMethod;
     @JsonProperty("fertApps")
     private List<FertAppsDto> fertApps;
     @JsonProperty("protApps")

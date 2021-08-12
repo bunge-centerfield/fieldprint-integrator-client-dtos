@@ -35,6 +35,10 @@ public class RotationDto {
     private Integer predominantRotationPracticeId;
     @JsonProperty("cover_crop")
     private Boolean coverCrop;
+    @JsonProperty("cover_crop_species_id")
+    private Integer coverCropSpecies;
+    @JsonProperty("cover_crop_establish_timing_id")
+    private Integer coverCropEstablishTiming;
     @JsonProperty("tillage_class_id")
     private Integer tillageClassId;
     @JsonProperty("crlmod_id")
@@ -51,6 +55,14 @@ public class RotationDto {
     private Boolean nutrientPlan;
     @JsonProperty("nutrient_4r_ids")
     private List<Integer> nutrient4rIds;
+    @JsonProperty("n_carry_over")
+    private ValueUnitDto nCarryOver;
+    @JsonProperty("management_technique_ids")
+    private List<Integer> managementTechniques;
+    @JsonProperty("p_soil_test_level_id")
+    private Integer pSoilTestLevel;
+    @JsonProperty("p_multi_crop_application_id")
+    private Integer pMultiCropApplication;
     @JsonProperty("soil_condition_id")
     private Integer soilConditionId;
     @JsonProperty("application_rate_id")

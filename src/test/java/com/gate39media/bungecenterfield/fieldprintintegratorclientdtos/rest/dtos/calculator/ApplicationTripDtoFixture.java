@@ -6,7 +6,8 @@ public class ApplicationTripDtoFixture {
 
     public static ApplicationTripDto newInstance() {
         return ApplicationTripDto.builder()
-                .appTimeId(6)
+                .fertAppTiming(1)
+                .fertAppMethod(6)
                 .fertApps(Collections.singletonList(FertAppsDtoFixture.newInstance()))
                 .protApps(Collections.singletonList(ProtAppsDtoFixture.newInstance()))
                 .build();

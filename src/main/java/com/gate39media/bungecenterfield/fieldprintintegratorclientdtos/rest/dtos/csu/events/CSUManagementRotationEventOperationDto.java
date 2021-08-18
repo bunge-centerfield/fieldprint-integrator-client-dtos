@@ -25,5 +25,4 @@ public class CSUManagementRotationEventOperationDto {
     private Boolean addResidue;
     @JsonProperty("kill_crop")
     private Boolean killCrop;
-    private Integer defaultResidueAdded;
 }

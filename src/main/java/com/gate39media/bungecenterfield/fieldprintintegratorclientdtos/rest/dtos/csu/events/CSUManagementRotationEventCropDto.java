@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class CSUManagementRotationEventCropDto {
     private String id;
     private String name;
-    private String yield;
     private String cropGroup1;
     private String defaultYield;
     private String yieldUnit;

@@ -15,8 +15,19 @@ import lombok.NoArgsConstructor;
 public class MetadataDto {
 
     @Data
+    static class Csip {
+        private String soils;
+        private String stepMitigation;
+        private String stepThresholds;
+        private String wepp;
+        private String weps;
+        private String wepsRegion;
+    }
+
+    @Data
     static class VersionDto {
         private String api;
+        private Csip csip;
     }
 
     private Integer runTimeSec;

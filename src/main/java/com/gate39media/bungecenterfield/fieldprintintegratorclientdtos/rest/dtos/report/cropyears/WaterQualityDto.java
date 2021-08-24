@@ -17,6 +17,8 @@ import lombok.NoArgsConstructor;
 public class WaterQualityDto implements FieldprintResultsDto {
     private ValueUnitDto fieldprintResult;
     private Double scaledFieldprintResult;
+    private LossPathwayDto lossPathway;
+    private DerivedInputsDto derivedInputs;
     private FactorsDto factors;
     private IrrigationDto irrigation;
     private ConservationDto conservation;

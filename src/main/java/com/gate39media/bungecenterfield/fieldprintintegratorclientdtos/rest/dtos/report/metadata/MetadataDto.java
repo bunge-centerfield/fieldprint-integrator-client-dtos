@@ -1,5 +1,6 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.report.metadata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -12,26 +13,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MetadataDto {
-
-    @Data
-    static class Csip {
-        private String soils;
-        private String stepMitigation;
-        private String stepThresholds;
-        private String wepp;
-        private String weps;
-        private String wepsRegion;
-    }
-
-    @Data
-    static class VersionDto {
-        private String api;
-        private Csip csip;
-    }
-
-    private Integer runTimeSec;
-    private Integer boundaryAcres;
+    private Double runTimeSec;
+    private Double boundaryAcres;
     private String state;
     @JsonProperty("generated_for")
     private String generatedFor;
@@ -41,6 +26,7 @@ public class MetadataDto {
     @JsonProperty("qdmp_request_id")
     private String qdmpRequestId;
     private VersionDto version;
+    private SoilInfo soilInfo;
     @JsonProperty("report_url")
     private String reportUrl;
 }

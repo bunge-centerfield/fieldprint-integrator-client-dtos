@@ -17,4 +17,9 @@ public class FieldprintValueUnitDto {
     private ValueUnitDto energy;
     private ValueUnitDto greenhouse;
     private String lrr;
+    private FieldprintValueUnitDto seedTreatment;
+    private FieldprintValueUnitDto fertilizers;
+    private FieldprintValueUnitDto protectants;
+    private FieldprintValueUnitDto fieldOps;
+    private FieldprintValueUnitDto lime;
 }

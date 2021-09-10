@@ -4,8 +4,8 @@ public class MetadataDtoFixture {
 
     public static MetadataDto newInstance() {
         return MetadataDto.builder()
-                .runTimeSec(45)
-                .boundaryAcres(70)
+                .runTimeSec(45.0)
+                .boundaryAcres(70.0)
                 .state("KS")
                 .location("Location #1")
                 .grower("Grower #1")
@@ -16,8 +16,8 @@ public class MetadataDtoFixture {
                 .build();
     }
 
-    private static MetadataDto.VersionDto fromVersion(String apiVersion) {
-        final MetadataDto.VersionDto version = new MetadataDto.VersionDto();
+    private static VersionDto fromVersion(String apiVersion) {
+        final VersionDto version = new VersionDto();
         version.setApi(apiVersion);
         return version;
     }

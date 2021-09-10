@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 public class BiodiversityDto implements FieldprintResultsDto {
     private ValueUnitDto fieldprintResult;
     private Double scaledFieldprintResult;
-    private Integer cultivatedLandScore;
-    private Integer fieldScore;
+    private Double cultivatedLandScore;
+    private Double fieldScore;
     private BenchmarksDto benchmarks;
 
     public FieldprintMetricType getType() {

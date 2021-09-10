@@ -1,6 +1,7 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.commons;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,10 +18,19 @@ import java.util.Optional;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ValueUnitDto {
     private Double value;
     private String unit;
     private String index;
+
+    public ValueUnitDto(Integer value) {
+        this.value = Double.valueOf(value);
+    }
+
+    public ValueUnitDto(Double value) {
+        this.value = value;
+    }
 
     public static ValueUnitDto newInstance() {
         return new ValueUnitDto();

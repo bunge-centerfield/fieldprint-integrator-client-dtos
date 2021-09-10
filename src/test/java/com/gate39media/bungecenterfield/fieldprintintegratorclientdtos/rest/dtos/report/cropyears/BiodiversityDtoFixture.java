@@ -8,8 +8,8 @@ public class BiodiversityDtoFixture {
         return BiodiversityDto.builder()
                 .fieldprintResult(ValueUnitDtoFixure.fromIndexAndValue("HPI", 0.62857145))
                 .scaledFieldprintResult(37.14285714)
-                .cultivatedLandScore(700)
-                .fieldScore(440)
+                .cultivatedLandScore(700.0)
+                .fieldScore(440.0)
                 .build();
     }
 }

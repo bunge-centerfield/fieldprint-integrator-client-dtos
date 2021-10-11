@@ -5,18 +5,22 @@ import lombok.Getter;
 @Getter
 public enum FieldprintMetricType {
 
-    LAND_USE("Land Use"),
-    SOIL_CONSERVATION("Soil Conservation"),
-    SOIL_CARBON("Soil Carbon"),
-    IRRIGATION_WATER("Irrigation Water"),
-    ENERGY_USE("Energy Use"),
-    GREENHOUSE_GAS("Greenhouse Gas"),
-    WATER_QUALITY("Water Quality"),
-    BIODIVERSITY("Biodiversity");
+    LAND_USE("Land Use", "acre / bushel", 4),
+    SOIL_CONSERVATION("Soil Conservation", "ton / acre / year", 1),
+    SOIL_CARBON("Soil Carbon",null, 2),
+    IRRIGATION_WATER("Irrigation Water", "acre_inch / bushel", 3),
+    ENERGY_USE("Energy Use", "btu / bushel", 1),
+    GREENHOUSE_GAS("Greenhouse Gas", "lbs_co2e / bushel", 1),
+    WATER_QUALITY("Water Quality", null, 2),
+    BIODIVERSITY("Biodiversity", null, 0);
 
     private final String title;
+    private final String unit;
+    private final Integer places;
 
-    FieldprintMetricType(final String title) {
+    FieldprintMetricType(String title, String unit, Integer places) {
         this.title = title;
+        this.unit = unit;
+        this.places = places;
     }
 }

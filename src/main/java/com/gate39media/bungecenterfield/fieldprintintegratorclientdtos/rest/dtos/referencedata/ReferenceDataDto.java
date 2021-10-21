@@ -20,4 +20,8 @@ public class ReferenceDataDto {
     @JsonProperty("crop_id")
     private String cropId;
     private List<String> applicability;
+    private String description;
+    private String purpose;
+    @JsonProperty("nrcs_id")
+    private String nrcsId;
 }

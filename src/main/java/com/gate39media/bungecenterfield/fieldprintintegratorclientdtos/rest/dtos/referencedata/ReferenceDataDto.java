@@ -24,4 +24,11 @@ public class ReferenceDataDto {
     private String purpose;
     @JsonProperty("nrcs_id")
     private String nrcsId;
+    private String type;
+    @JsonProperty("default_units")
+    private String units;
+    @JsonProperty("max_error")
+    private Integer maxError;
+    @JsonProperty("max_flag")
+    private Integer maxFlag;
 }

@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WepsStations {
-    private String cliStation;
+    private WindStations cliStation;
     private String windStation;
     private List<WindStations> windStations;
 }

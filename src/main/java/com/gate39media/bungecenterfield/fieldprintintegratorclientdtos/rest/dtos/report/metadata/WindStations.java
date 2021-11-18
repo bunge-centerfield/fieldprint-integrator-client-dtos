@@ -14,4 +14,5 @@ public class WindStations {
     private String id;
     private String name;
     private Double elevation;
+    private String state;
 }

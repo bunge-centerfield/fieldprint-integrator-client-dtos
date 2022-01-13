@@ -31,4 +31,6 @@ public class ReferenceDataDto {
     private Integer maxError;
     @JsonProperty("max_flag")
     private Integer maxFlag;
+    @JsonProperty("yield_unit")
+    private String yieldUnits;
 }

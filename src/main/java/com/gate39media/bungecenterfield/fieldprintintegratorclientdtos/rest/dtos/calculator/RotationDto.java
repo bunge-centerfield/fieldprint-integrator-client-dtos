@@ -115,6 +115,10 @@ public class RotationDto {
     private ValueUnitDto irrigationFuelAmt;
     @JsonProperty("secondary_irrigation")
     private ValueUnitDto secondaryIrrigation;
+    @JsonProperty("secondary_irrigation_energy")
+    private Boolean secondaryIrrigationEnergy;
+    @JsonProperty("secondary_irrigation_energy_exact")
+    private Boolean secondaryIrrigationEnergyExact;
     @JsonProperty("secondary_pump_pressure_id")
     private Integer secondaryPumpPressureId;
     @JsonProperty("secondary_pumping_depth_id")

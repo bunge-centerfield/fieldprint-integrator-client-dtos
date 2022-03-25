@@ -1,6 +1,7 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator;
 
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator.enums.ArrayType;
+import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator.enums.FieldprintCalculatorParamsMetadata;
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator.enums.GeometryType;
 import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.calculator.enums.RotationType;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ public class FieldprintCalculatorParams {
     private String grower;
     private String location;
     private String qdmp_request_id;
+    private FieldprintCalculatorParamsMetadata metadata;
 
     public Map<String, String> toMap() {
         final Map<String, String> map = new HashMap<String, String>() {{

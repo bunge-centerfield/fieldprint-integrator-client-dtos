@@ -4,6 +4,7 @@ env:
   variables:
     SETTINGS_PATH: settings.xml
   parameter-store:
+    AWS_ACCOUNT_ID: gate39media-codebuild-aws-account
     ARTIFACTORY_URL: gate39media-codebuild-artifactory-url
     RELEASE_SCM_USER: gate39media-codebuild-release-scm-user
     RELEASE_SCM_TOKEN: gate39media-codebuild-release-scm-token
@@ -15,7 +16,7 @@ phases:
       - echo export PATH=~/.local/bin:$PATH > ~/.bash_profile
       - mkdir -p ~/.aws/ && echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
       - source ~/.bash_profile
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $AWS_DEFAULT_REGION --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $AWS_ACCOUNT_ID --query authorizationToken --output text`
       - printenv | grep -i codebuild
     finally:
       - echo Entered the install phase and compile dependencies from project on `date`...

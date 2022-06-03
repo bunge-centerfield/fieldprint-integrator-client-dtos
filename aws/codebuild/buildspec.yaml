@@ -3,22 +3,19 @@ version: 0.2
 env:
   variables:
     SETTINGS_PATH: settings.xml
-    CODE_ARTIFACT_DOMAIN: bunge-centerfield
-    CODE_ARTIFACT_OWNER: 070040480166
   parameter-store:
     ARTIFACTORY_URL: gate39media-codebuild-artifactory-url
     RELEASE_SCM_USER: gate39media-codebuild-release-scm-user
     RELEASE_SCM_TOKEN: gate39media-codebuild-release-scm-token
-    INSTANCE_PROFILE: gate39media-codebuild-fieldprint-integrator-service-role
+    CODE_ARTIFACT_DOMAIN: gate39media-codebuild-codeartifact-domain
 
 phases:
   install:
     commands:
       - echo export PATH=~/.local/bin:$PATH > ~/.bash_profile
-      - mkdir -p ~/.aws/ && echo -e "[profile default]\nrole_arn = $INSTANCE_PROFILE\ncredential_source = Ec2InstanceMetadata" > ~/.aws/credentials
-      - echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
+      - mkdir -p ~/.aws/ && echo -e "[profile default]\nregion = $AWS_DEFAULT_REGION" > ~/.aws/config && chmod 600 ~/.aws/config
       - source ~/.bash_profile
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $CODE_ARTIFACT_OWNER --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain $CODE_ARTIFACT_DOMAIN --domain-owner $AWS_DEFAULT_REGION --query authorizationToken --output text`
       - printenv | grep -i codebuild
     finally:
       - echo Entered the install phase and compile dependencies from project on `date`...

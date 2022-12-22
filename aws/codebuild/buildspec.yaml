@@ -43,7 +43,7 @@ phases:
           echo "It was triggered by develop/feature branches."
           mvn deploy -B -DskipTests -Dartifactory.url=$ARTIFACTORY_URL -s $SETTINGS_PATH
           echo "Snapshot generated successfully!"
-        elif echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^.*\/main-gate39$'; then
+        elif echo "$CODEBUILD_WEBHOOK_HEAD_REF" | grep -Eq '^.*\/main$'; then
           echo "It was triggered by main branches."
           export CI_COMMIT_REF=`awk -F/ '{print $3}' <<< $CODEBUILD_WEBHOOK_HEAD_REF`
           git config --global user.email "cicd@gate39media.com"

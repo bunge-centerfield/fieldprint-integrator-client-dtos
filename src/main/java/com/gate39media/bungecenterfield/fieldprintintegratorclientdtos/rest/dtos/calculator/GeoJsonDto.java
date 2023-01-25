@@ -15,7 +15,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GeoJsonDto {
     private String type;
-    private List<List<List<Double>>> coordinates;
+    private List<List<List<List<Double>>>> coordinates;
 
     public static GeoJsonDto newInstance() {
         return new GeoJsonDto();

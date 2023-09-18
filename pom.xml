@@ -24,12 +24,12 @@
         <repository>
             <id>centerfield-releases</id>
             <name>Bunge Centerfield CodeArtifact Releases</name>
-            <url>https://${artifactory.url}/maven/centerfield-releases</url>
+            <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
         </repository>
         <snapshotRepository>
             <id>centerfield-snapshots</id>
             <name>Bunge Centerfield CodeArtifact Snapshots</name>
-            <url>https://${artifactory.url}/maven/centerfield-snapshots</url>
+            <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 

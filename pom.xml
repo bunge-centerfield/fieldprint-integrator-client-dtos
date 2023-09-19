@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.gate39media.bunge-centerfield</groupId>
     <artifactId>fieldprint-integrator-client-dtos</artifactId>
-    <version>0.0.26-SNAPSHOT</version>
+    <version>0.0.25-SNAPSHOTT</version>
     <name>fieldprint-integrator-client-dtos</name>
 
     <parent>

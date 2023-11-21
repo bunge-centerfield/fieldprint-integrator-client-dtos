@@ -14,22 +14,22 @@
     </parent>
 
     <scm>
-        <connection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</connection>
-        <developerConnection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</developerConnection>
-        <url>https://github.com/gate39media/fieldprint-integrator-client-dtos.git</url>
-        <tag>HEAD</tag>
+        <connection>${github.scm.connection}</connection>
+        <developerConnection>${github.scm.developerConnection}</developerConnection>
+        <url>${github.scm.url}</url>
+        <tag>${github.scm.tag}</tag>
     </scm>
 
     <distributionManagement>
         <repository>
             <id>centerfield-releases</id>
             <name>Bunge Centerfield CodeArtifact Releases</name>
-            <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
+            <url>${centerfield.releases.url}</url>
         </repository>
         <snapshotRepository>
             <id>centerfield-snapshots</id>
             <name>Bunge Centerfield CodeArtifact Snapshots</name>
-            <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
+            <url>${centerfield.snapshots.url}</url>
         </snapshotRepository>
     </distributionManagement>
 

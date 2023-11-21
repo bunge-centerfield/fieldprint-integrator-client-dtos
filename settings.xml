@@ -26,9 +26,27 @@
 
     <activeProfiles>
         <activeProfile>gate39media-centerfield</activeProfile>
+        <activeProfile>github-scm</activeProfile>
+        <activeProfile>codeartifact</activeProfile>
     </activeProfiles>
 
     <profiles>
+        <profile>
+            <id>github-scm</id>
+            <properties>
+                <github.scm.connection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.connection>
+                <github.scm.developerConnection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.developerConnection>
+                <github.scm.url>https://github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.url>
+                <github.scm.tag>HEAD</github.scm.tag>
+            </properties>
+        </profile>
+        <profile>
+            <id>codeartifact</id>
+            <properties>
+                <centerfield.releases.url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</centerfield.releases.url>
+                <centerfield.snapshots.url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</centerfield.snapshots.url>
+            </properties>
+        </profile>
         <profile>
             <id>gate39media-centerfield</id>
             <repositories>

@@ -34,8 +34,8 @@
         <profile>
             <id>github-scm</id>
             <properties>
-                <github.scm.connection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.connection>
-                <github.scm.developerConnection>scm:git:https://Sharongate39media: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@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.developerConnection>
+                <github.scm.connection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.connection>
+                <github.scm.developerConnection>scm:git:https://${release.scm.user}:${release.scm.token}@github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.developerConnection>
                 <github.scm.url>https://github.com/gate39media/fieldprint-integrator-client-dtos.git</github.scm.url>
                 <github.scm.tag>HEAD</github.scm.tag>
             </properties>
@@ -43,8 +43,8 @@
         <profile>
             <id>codeartifact</id>
             <properties>
-                <centerfield.releases.url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</centerfield.releases.url>
-                <centerfield.snapshots.url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</centerfield.snapshots.url>
+                <centerfield.releases.url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</centerfield.releases.url>
+                <centerfield.snapshots.url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</centerfield.snapshots.url>
             </properties>
         </profile>
         <profile>
@@ -52,7 +52,7 @@
             <repositories>
                 <repository>
                     <id>centerfield-releases</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
                     <releases>
                         <enabled>true</enabled>
                         <updatePolicy>never</updatePolicy>
@@ -63,7 +63,7 @@
                 </repository>
                 <repository>
                     <id>centerfield-snapshots</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
                     <releases>
                         <enabled>false</enabled>
                     </releases>
@@ -74,13 +74,13 @@
                 </repository>
                 <repository>
                     <id>maven-central-store</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
                 </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
                     <id>centerfield-releases</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-releases/</url>
                     <releases>
                         <enabled>true</enabled>
                         <updatePolicy>never</updatePolicy>
@@ -91,7 +91,7 @@
                 </pluginRepository>
                 <pluginRepository>
                     <id>centerfield-snapshots</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/centerfield-snapshots/</url>
                     <releases>
                         <enabled>false</enabled>
                     </releases>
@@ -102,7 +102,7 @@
                 </pluginRepository>
                 <pluginRepository>
                     <id>maven-central-store</id>
-                    <url>https://bunge-centerfield-612173690823.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+                    <url>https://bunge-centerfield-070040480166.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>

@@ -4,7 +4,7 @@ env:
   variables:
     SETTINGS_PATH: settings.xml
     CODE_ARTIFACT_DOMAIN: bunge-centerfield
-    CODE_ARTIFACT_OWNER: 070040480166
+    CODE_ARTIFACT_OWNER: 542316680640
   parameter-store:
     ARTIFACTORY_URL: gate39media-codebuild-artifactory-url
     RELEASE_SCM_USER: gate39media-codebuild-release-scm-user
@@ -28,7 +28,7 @@ phases:
       - echo Pre build started and running unit tests from project on `date`...
       - mvn --no-transfer-progress test -s $SETTINGS_PATH
     finally:
-      - echo Finally running integrated tests form project on `date`...
+      - echo Finally running integrated tests form project on `date`....
       - mvn --no-transfer-progress verify -DskipTests -s $SETTINGS_PATH
   build:
     commands: 

@@ -53,7 +53,7 @@ phases:
           mvn release:clean release:prepare release:perform -B -DscmCommentPrefix="[maven-release] [skip ci] " -Darguments="-DskipTests -Dartifactory.url=$ARTIFACTORY_URL" -Drelease.scm.user=$RELEASE_SCM_USER -Drelease.scm.token=$RELEASE_SCM_TOKEN -s $SETTINGS_PATH
           echo "Release was generated and tag was created!"
         else
-          echo "Branch not supported! Nothing to do..."
+          echo "Branch not supported! Nothing to do...."
         fi
 
 cache:

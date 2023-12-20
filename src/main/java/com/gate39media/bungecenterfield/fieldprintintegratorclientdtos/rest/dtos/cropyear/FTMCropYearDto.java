@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class FTMCropYearDto {
     private FTMCropYearRotationDto rotation;
     private FTMCropYearManagementDto management;
     private FTMCropYearOperationsDto operations;
-    private FTMCropYearCalculatorReportDto report;
+    private List<FTMCropYearCalculatorReportDto> reports;
 
     public FTMCropYearDto(Long field) {
         this.field = field;

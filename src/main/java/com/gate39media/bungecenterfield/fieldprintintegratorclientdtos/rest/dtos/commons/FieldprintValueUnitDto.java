@@ -1,5 +1,6 @@
 package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.commons;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FieldprintValueUnitDto {
     private ValueUnitDto fieldprintResult;
     private Double scaledFieldprintResult;

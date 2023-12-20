@@ -5,7 +5,7 @@ public class MetadataDtoFixture {
     public static MetadataDto newInstance() {
         return MetadataDto.builder()
                 .runTimeSec(45.0)
-                .boundaryAcres(70.0)
+                // .boundaryAcres(70.0)
                 .state("KS")
                 .location("Location #1")
                 .grower("Grower #1")

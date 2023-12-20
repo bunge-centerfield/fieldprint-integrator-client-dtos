@@ -16,7 +16,7 @@ public class LandUseDtoFixture {
                 .fieldprintResult(ValueUnitDtoFixure.fromUnitAndValue("acre / bushel", 0.01333333))
                 .scaledFieldprintResult(3.0)
                 .yieldAdjusted(ValueUnitDtoFixure.fromUnitAndValue("bushel / acre", 75.0))
-                .abandonment(Collections.emptyList())
+                .abandonment("")
                 .benchmarks(benchmarks)
                 .build();
     }

@@ -3,6 +3,7 @@ package com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dto
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.gate39media.bungecenterfield.fieldprintintegratorclientdtos.rest.dtos.commons.ValueUnitDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MetadataDto {
     private Double runTimeSec;
-    private Double boundaryAcres;
+    private ValueUnitDto boundaryAcres;
     private String state;
     @JsonProperty("generated_for")
     private String generatedFor;

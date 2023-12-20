@@ -20,7 +20,7 @@ public class LandUseDto implements FieldprintResultsDto {
     private ValueUnitDto fieldprintResult;
     private Double scaledFieldprintResult;
     private ValueUnitDto yieldAdjusted;
-    private List<String> abandonment;
+    private String abandonment;
     private BenchmarksDto benchmarks;
 
     @Override
